@@ -1,0 +1,55 @@
+{
+  "name": "@vinworld/vinmail",
+  "version": "0.1.0",
+  "description": "Official Node.js and TypeScript SDK for VinMail transactional email API.",
+  "keywords": [
+    "vinmail",
+    "vinworld",
+    "email",
+    "transactional-email",
+    "ses",
+    "sdk"
+  ],
+  "license": "MIT",
+  "author": "Vinworld <dev@vinworlddev.com>",
+  "homepage": "https://vinmail.vinworlddev.com/docs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vinworld/vinmail-sdks.git",
+    "directory": "node"
+  },
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json && node -e \"require('node:fs').writeFileSync('dist/cjs/package.json', JSON.stringify({ type: 'commonjs' }, null, 2))\"",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "test": "npm run build && node --test test/vinmail.test.mjs",
+    "prepublishOnly": "npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.2"
+  }
+}

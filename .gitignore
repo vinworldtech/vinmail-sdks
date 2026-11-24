@@ -1,0 +1,12 @@
+node_modules/
+dist/
+vendor/
+composer.lock
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+build/
+.dart_tool/
+pubspec.lock
+.DS_Store

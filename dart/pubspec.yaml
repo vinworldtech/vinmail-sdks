@@ -1,0 +1,21 @@
+name: vinmail
+description: Official Dart SDK for the VinMail transactional email API (server-side Dart, Dart Frog, Serverpod, CLI, and backend workers).
+version: 0.1.0
+homepage: https://vinmail.vinworlddev.com/docs
+repository: https://github.com/vinworld/vinmail-sdks
+topics:
+  - email
+  - transactional-email
+  - ses
+  - sdk
+  - vinmail
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  http: ^1.2.0
+
+dev_dependencies:
+  lints: ^5.0.0
+  test: ^1.25.0
